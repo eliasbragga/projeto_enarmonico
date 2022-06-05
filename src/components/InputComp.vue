@@ -75,4 +75,15 @@ export default {
     color: white;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.512);
 }
+
+@media (max-width:500px){
+  .col-sm-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin: auto;
+  color: white;
+}
+}
+
+
 </style>

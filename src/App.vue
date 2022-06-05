@@ -247,4 +247,58 @@ h2 {
 
   margin: 15px auto;
 }
+
+
+
+
+
+@media (max-width: 1046px){
+ 
+
+  img {
+  margin: 5px 15px;
+  animation: loading 4s linear infinite;
+  width: 30px;
+  height: 30px;
+}
+
+h2 {
+    font-size: 19px;
+    margin: 14px 81px;
+}
+
+}
+
+@media (max-width: 860px){
+  #sectionMaior{
+    width: 90%;
+    height: 50%;
+    
+  }
+
+}
+
+@media (max-width: 500px){
+ 
+
+  #sectionMaior{
+    width: 100%;
+    height: 50%;
+    
+  }
+
+  #resultado{
+    width: 100%;
+    height: 80px;
+  }
+
+  img {
+    display: none;
+  }
+
+  h2{
+    font-size: 22px;
+    margin: 15px 100px;
+  }
+}
 </style>
