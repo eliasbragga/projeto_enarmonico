@@ -7,7 +7,7 @@
         <h2>Descobrir nota henarmônica</h2>
       </div>
       <div>
-        <InputComp @adicionarNota="adicionarFunc($event)" />
+        <InputComp @adicionarNota="getNote($event)" :isButtonDisabled="disabled" />
       </div>
       <div v-show="mostrarResultado" id="resultado">
         <p v-bind:title="descricao">{{ nota }}</p>                  
@@ -33,38 +33,46 @@ export default {
       mostrarResultado: false,
       descricao: "",
       mostrar:false,
-      message:""
+      message:"",
+      disabled:false
     };
   },
   methods: {
-    adicionarFunc(event) {
+    getNote(event) {
       if (event == "C") {
         this.nota = `A nota que você digitou foi ${event}. As notas enarmônicas de ${event} são B# e Dbb`;
         this.mostrarResultado = true;
+        this.mostrar = false
         this.descricao = bem;
       } else if (event == "D") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são C## e Ebb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = `${sus} ${bem}`;
       } else if (event == "E") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são D##  Fb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "F") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são E# e Gbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "G") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são F## e Abb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = `${sus} ${bem}`;
       } else if (event == "A") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são G## e Bbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = `${sus} ${bem}`;
       } else if (event == "B") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são A## e Cb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "C#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são B## e Db`;
@@ -73,109 +81,140 @@ export default {
       } else if (event == "D#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são Eb e Fbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "E#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são F e Gbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "F#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são E## e Gb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "G#") {
         this.nota = `A nota que você digitou foi ${event}. A nota enarmônica de ${event} é Ab`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "A#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são Bb e Cbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "B#") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são C e Dbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "Cb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são A## e B`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Db") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são C# e B##`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Eb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são D# e Fbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "Fb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são D## e E`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Gb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são E## e F#`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Ab") {
         this.nota = `A nota que você digitou foi ${event}. A nota enarmônica de ${event} é G#`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "Bb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são A# e Cbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "Cbb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são A# e Bb`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "Dbb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são B# e C`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "Ebb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são C## e D`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Fbb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são D# e Eb`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "Gbb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são E# e F`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "Abb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são F## e G`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "Bbb") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são G## e A`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = sus;
       } else if (event == "C##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são D e Ebb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "D##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são E e Fb`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "E##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são F# e Gb`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "F##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são G e Abb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "G##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são A e Bbb`;
         this.mostrarResultado = true;
+         this.mostrar = false
         this.descricao = bem;
       } else if (event == "A##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} são B e Cb`;
         this.mostrarResultado = true;
+         this.mostrar = false
       } else if (event == "B##") {
         this.nota = `A nota que você digitou foi ${event}. As nota enarmônicas de ${event} é C# e Db`;
         this.mostrarResultado = true;
+         this.mostrar = false
       }else{        
         this.mostrarResultado = false
         this.mostrar = true
+         this.disabled = true
         this.message = "Não encontramos esta nota. Tente novamente"
       }
 
-      setTimeout(() => (this.mostrar = false), 5000);
-      setTimeout(() => (this.mostrarResultado = false), 15000);
+      setTimeout(() => {        
+        this.mostrar = false
+        this.disabled = false
+        }, 4000);
+      
     },
   },
   components: {

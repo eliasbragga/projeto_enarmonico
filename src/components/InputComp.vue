@@ -11,7 +11,9 @@
       ></v-text-field>
     </v-col>
     <div class="text-center">
-      <v-btn @click="emitir" rounded color="primary" dark>
+      <v-btn @click="emitir" rounded color="primary" dark
+      v-bind:disabled="isButtonDisabled"
+      >
         Descobrir
       </v-btn>
     </div>
@@ -24,8 +26,12 @@ export default {
   data() {
     return {
       item: "",
+      
     };
   },
+  props:{
+    isButtonDisabled:Boolean
+  },  
   methods: {
     emitir() {
       const itemCaptalize = this.item[0].toUpperCase() + this.item.substring(1)
