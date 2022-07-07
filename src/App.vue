@@ -10,13 +10,16 @@
         <div>
           <InputComp
             @adicionarNota="getNote($event)"
-            :isButtonDisabled="disabled"
+            :isButtonDisabled="disabledButton"
           />
         </div>
         <div v-show="mostrarResultado" id="resultado">
-          <p v-bind:title="descricao">{{ nota }}</p>
+          <p v-bind:title="descricao">{{ resultadoNotaEnarmonica }}</p>
         </div>
-        <ErrorMsg :msg="message" :Vshow="showErrorMessage" />
+        <ErrorMsg
+          :messageDeNaoEncontradoComp="messageDeNaoEncontrado"
+          :VshowMessageError="showErrorMessage"
+        />
       </div>
     </div>
   </v-app>
@@ -25,18 +28,10 @@
 <script>
 import InputComp from "./components/InputComp.vue";
 import ErrorMsg from "./components/ErrorMsg.vue";
-import myMixins from './mixin/myMixins'
-
-// let sus = "## -> dobrado sustenido";
-// let bem = "bb -> dobrado bemol";
+import myMixins from "./mixin/myMixins";
 export default {
   name: "App",
-  mixins:[myMixins],
-  data() {
-    return {
-          
-    };
-  },  
+  mixins: [myMixins],
   components: {
     InputComp,
     ErrorMsg,

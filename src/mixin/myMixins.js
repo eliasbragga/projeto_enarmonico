@@ -1,12 +1,12 @@
 const myMixins = {
   data() {
     return {
-      nota: "",
+      resultadoNotaEnarmonica: "",
       mostrarResultado: false,
       descricao: "",
       showErrorMessage: false,
-      message: "",
-      disabled: false, 
+      messageDeNaoEncontrado: "",
+      disabledButton: false,
       juntarEnarmonicos: [],
       listadeNotas: [
         "C",
@@ -86,32 +86,35 @@ const myMixins = {
     };
   },
   methods: {
-    juntando() {
+    juntandoListas() {
       this.juntarEnarmonicos = [this.listadeNotas, this.listaEnarmonicos];
     },
     getNote(event) {
       if (this.juntarEnarmonicos[0].includes(event)) {
         let indice = this.juntarEnarmonicos[0].indexOf(event);
+        setTimeout(() => (this.mostrarResultado = false), 12000);
         return (
-          (this.nota = `A nota enarmônica de ${this.juntarEnarmonicos[0][indice]} é ${this.juntarEnarmonicos[1][indice]}`),
+          (this.resultadoNotaEnarmonica = `As notas enarmônicas de ${this.juntarEnarmonicos[0][indice]} são ${this.juntarEnarmonicos[1][indice]}`),
           (this.mostrarResultado = true),
-          (this.showErrorMessage = false)
+          (this.showErrorMessage = false),
+          (this.disabledButton = false)
         );
       } else {
         this.showErrorMessage = true;
-        this.message = "Nota não encontrada. Por favor, tente novamente!";
+        this.messageDeNaoEncontrado =
+          "Nota não encontrada. Por favor, tente novamente!";
         this.mostrarResultado = false;
-        this.disabled = true;
+        this.disabledButton = true;
         setTimeout(() => {
           this.showErrorMessage = false;
           this.mostrarResultado = false;
-          this.disabled = false;
+          this.disabledButton = false;
         }, 4000);
       }
     },
   },
   mounted() {
-    this.juntando();
+    this.juntandoListas();
   },
 };
 
