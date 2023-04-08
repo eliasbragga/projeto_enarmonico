@@ -4,8 +4,8 @@
       <h1>Henarmonia</h1>
       <div id="sectionMaior">
         <div id="header">
-          <img src="/img/27002.png" width="50px" alt="" />
-          <h2>Descobrir nota henarmônica</h2>
+          <img class="header__img" src="/img/27002.png" width="50px" alt="" />
+          <h2 class="header__descricao">Descobrir nota henarmônica</h2>
         </div>
         <div>
           <InputComp
@@ -27,7 +27,7 @@
 
 <script>
 import InputComp from "./components/InputComp.vue";
-import ErrorMsg from "./components/ErrorMsg.vue";
+import ErrorMsg from "./components/error-message/ErrorMsg.vue";
 import myMixins from "./mixin/myMixins";
 export default {
   name: "App",
@@ -57,8 +57,9 @@ export default {
 #sectionMaior {
   background-color: rgb(38, 53, 142);
   width: 60%;
-  height: 50%;
+  min-height: 50%;
   margin: auto;
+  position: relative;
 
   border-radius: 10px;
   border: 2px solid black;
@@ -67,11 +68,20 @@ export default {
 
 #header {
   display: flex;
+  
 }
 
 img {
   margin: 5px 20px;
   animation: loading 4s linear infinite;
+  position: relative;
+}
+
+.header__img {
+  width: 8%;
+  height: 8%;
+  position: relative;
+  right: 0;
 }
 
 h1 {
@@ -79,9 +89,11 @@ h1 {
   color: black;
 }
 
-h2 {
+.header__descricao {
   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.507);
-  margin: 15px 200px;
+  margin:2%  ;
+  font-size: 1.7em;
+  width: 70%;
 }
 
 @keyframes loading {
@@ -138,9 +150,9 @@ h2 {
     display: none;
   }
 
-  h2 {
-    font-size: 22px;
-    margin: 15px 100px;
+  .header__descricao {
+    font-size: 1.3em;
+    margin: 2% 20%;
   }
 }
 </style>

@@ -23,7 +23,14 @@ export default {
 </script>
 
 <style scoped>
->>> .v-sheet.v-alert.v-sheet--shaped {
+::deep() .v-sheet.v-alert.v-sheet--shaped {
   margin-top: 20px;
+}
+
+.messageError{
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  
 }
 </style>
